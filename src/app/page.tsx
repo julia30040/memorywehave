@@ -1,12 +1,12 @@
-import Image from "next/image";
+// import Image from "next/image";
 import FarewellPartners from './FarewellPartners';
 import ImageWall from './ImageWall';
 
 export default function Home() {
   return (
-    <div className=" grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-2 pb-10 gap-16 sm:p-4 font-[family-name:var(--font-geist-sans)] overflow-x-hidden">
+    <div className=" grid grid-rows-[20px_1fr_20px]   min-h-screen p-2 pb-10 gap-16 sm:p-4 font-[family-name:var(--font-geist-sans)] overflow-x-hidden">
       <main className="w-full flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 h-[70vh] flex items-center justify-center mb-16">
           <FarewellPartners />
         </div>
         <div className="w-full">
