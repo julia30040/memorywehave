@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import styles from "./FarewellPartners.module.css";
 
 interface Partner {
   id: number;
@@ -121,11 +122,10 @@ const FarewellPartners = () => {
   return (
     <>
       <div>
-        <div
-          className="text-4xl font-bold mb-24 text-center text-[#626c70]"
-          style={{ letterSpacing: "0.24em" }}
-        >
-          當我們一起走過
+        <div className={styles.typewriterContainer}>
+          <span className={styles.typewriterWrapper}>
+            <span className={styles.typewriterText}>當我們一起走過</span>
+          </span>
         </div>
         <div className="flex justify-center items-center gap-16">
           {partners.map((partner) => (
