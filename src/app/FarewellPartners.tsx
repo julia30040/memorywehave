@@ -57,16 +57,22 @@ const partners: Partner[] = [
     name: "學姊 Julia",
     image: "/farewell-julia.png",
     hoverImage: "/farewell-julia.png",
-    message: "I will miss you all!",
+    message: "一下子",
     color: "#00C964",
   },
 ];
 
-const FarewellPartners = () => {
+const FarewellPartners = ({ onPartnerClick, onLetterClose }: { onPartnerClick: (index: number) => void, onLetterClose?: () => void }) => {
   const [selectedPartner, setSelectedPartner] = useState<Partner | null>(null);
   const [letterOpen, setLetterOpen] = useState(false);
   const [displayedText, setDisplayedText] = useState("");
   const [isTypingComplete, setIsTypingComplete] = useState(false);
+
+  useEffect(() => {
+    if (!letterOpen) {
+      onLetterClose?.();
+    }
+  }, [letterOpen, onLetterClose]);
 
   // create a keyboard `esc` key event listener
   // when the key is pressed, close the letter
@@ -85,6 +91,8 @@ const FarewellPartners = () => {
   const handleClick = (partner: Partner) => {
     setSelectedPartner(partner);
     setLetterOpen(true);
+
+    onPartnerClick?.(partner.id - 1);
   };
 
   useEffect(() => {

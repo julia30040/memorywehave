@@ -1,15 +1,28 @@
+'use client'
+
+import { useState } from "react";
+import CustomAudioPlayer from "./AudioPlayer";
 import FarewellPartners from "./FarewellPartners";
 import ImageWall from "./ImageWall";
 
 export default function Home() {
+  const [activeTrackIndex, setActiveTrackIndex] = useState<number | null>(null);
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px]   min-h-screen p-2 pb-10 gap-16 sm:p-4 font-[family-name:var(--font-geist-sans)] overflow-x-hidden">
       <main className="w-full flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <div className="container mx-auto px-4 h-[70vh] flex items-center justify-center mb-16">
-          <FarewellPartners />
+          <FarewellPartners onPartnerClick={(index) => setActiveTrackIndex(index)} />
         </div>
         <div className="w-full">
           <ImageWall />
+        </div>
+        <div className="fixed right-0 bottom-0 z-50 ">
+            <CustomAudioPlayer
+              activeTrackIndex={activeTrackIndex}
+              onPrevious={() => setActiveTrackIndex((previousIndex) => previousIndex === 0 ? 2 : previousIndex! - 1)}
+              onNext={() => setActiveTrackIndex((prevActiveIndex) => prevActiveIndex === 2 ? 0 : prevActiveIndex! + 1)}
+              />
         </div>
         {/* <div className="container mx-auto px-4">
           <Image
