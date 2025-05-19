@@ -57,7 +57,25 @@ const partners: Partner[] = [
     name: "學姊 Julia",
     image: "/farewell-julia.png",
     hoverImage: "/farewell-julia.png",
-    message: "一下子",
+    message: `時間咻－－地，四年就過了。<br/>
+    還記得剛進來第一個禮拜就和大家去 Team Building，那時花蓮的旅行回憶仍歷歷在目。<br/>
+    後來遇到疫情只能在家遠端的日子，沒辦法和大家一起在辦公室打屁閒聊，老實說有點孤單 இдஇ．．．<br/>
+    記得書書離職時說過「2C 夥伴是她最捨不得的」，<br/>
+    這四年來和大家一起經歷許多事情，<br/>
+    忘記什麼時候開始，強烈意識到這也是我在 Hahow 的感受：<br/>
+    多麼難得，我們不只是工作上努力幫助彼此的夥伴，<br/>
+    更一起分享生活大小事，經歷彼此人生的重要時刻。<br/>
+    「<br/>
+      ．請你別忘記 自由的微風 永遠不停息<br/>
+      ．請你別忘記 黑暗的洞裡 夥伴的打氣<br/>
+      ．溫柔的夏夜裡 河流在傾瀉<br/>
+      ．空曠的荒野裡 萬物在更迭<br/>
+      ．請你別忘記 簡單的心情<br/>
+    」— 《找到你》雷擎<br/>
+    <br/>
+    敬從年少到現在，漸漸成熟卻仍不世俗的我們。<br/>
+    慶幸加入 Hahow 找到每個可愛的你 ✨ 一定會再相見！<br/>
+    `,
     color: "#00C964",
   },
 ];
@@ -199,6 +217,9 @@ const FarewellPartners = ({ onPartnerClick, onLetterClose }: { onPartnerClick: (
           </h2>
           <p
             className="overflow-y-auto font-size-16 text-[#8a8a8a] leading-7 text-shadow-[6px_6px_4px_#ffffff]"
+            // style={{
+            //   whiteSpace: "pre",
+            // }}
             dangerouslySetInnerHTML={{ __html: displayedText }}
           />
 

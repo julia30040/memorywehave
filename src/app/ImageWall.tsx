@@ -7,7 +7,7 @@ import 'yet-another-react-lightbox/styles.css';
 import Image from 'next/image';
 
 
-const images = Array.from({ length: 221 }, (_, index) => ({
+const images = Array.from({ length: 234 }, (_, index) => ({
   src: `/memory-${index+1}.jpeg`,
   srcSm: `/memory-${index+1}-lg.jpeg`,
   id: index + 1,
