@@ -69,7 +69,6 @@ export default function CustomAudioPlayer({ activeTrackIndex, onNext, onPrevious
           autoPlay
           autoPlayNext={true}
           onEnded={onNext}
-          onPlay={() => console.log("onPlay")}
           onClickNext={onNext}
           onClickPrevious={onPrevious}
           customControlsSection={[

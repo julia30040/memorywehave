@@ -186,6 +186,7 @@ const FarewellPartners = ({ onPartnerClick, onLetterClose }: { onPartnerClick: (
       <motion.div
         className="fixed inset-0 flex justify-center items-center z-50"
         style={{ backdropFilter: "blur(5px)", backgroundColor: "#000000a8" }}
+        initial={{ opacity: 0 }}
         animate={{
           opacity: letterOpen ? 1 : 0,
           pointerEvents: letterOpen ? "auto" : "none",

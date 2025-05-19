@@ -1,11 +1,15 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-import { Masonry } from 'masonic';
+import dynamic from 'next/dynamic';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import Image from 'next/image';
 
+// Dynamically import Masonry with no SSR
+const Masonry = dynamic(() => import('masonic').then(mod => mod.Masonry), {
+  ssr: false
+});
 
 const images = Array.from({ length: 234 }, (_, index) => ({
   src: `/memory-${index+1}.jpeg`,
@@ -14,7 +18,6 @@ const images = Array.from({ length: 234 }, (_, index) => ({
   name: `Image ${index + 1}`,
   description: `Description for Image ${index + 1}`
 }));
-
 
 const ImageWall = () => {
   const [isOpen, setIsOpen] = useState(false);
