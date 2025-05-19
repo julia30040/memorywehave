@@ -174,7 +174,7 @@ const FarewellPartners = () => {
           來自 <span style={{ color: selectedPartner?.color }}>{selectedPartner?.name}</span> 的訊息：
         </h2>
         <p
-          className="max-h-[50vh] overflow-y-auto font-size-16 text-[#8a8a8a] leading-7 text-shadow-[6px_6px_4px_#ffffff]"
+          className="overflow-y-auto font-size-16 text-[#8a8a8a] leading-7 text-shadow-[6px_6px_4px_#ffffff]"
           dangerouslySetInnerHTML={{ __html: displayedText }}
         />
         
