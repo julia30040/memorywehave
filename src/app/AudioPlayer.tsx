@@ -67,14 +67,9 @@ export default function CustomAudioPlayer({ activeTrackIndex, onNext, onPrevious
           showSkipControls={true}
           showJumpControls={false}
           autoPlay
-          autoPlayNext={true}
           onEnded={onNext}
           onClickNext={onNext}
           onClickPrevious={onPrevious}
-          customControlsSection={[
-            "MAIN_CONTROLS",
-            "VOLUME_CONTROLS",
-          ]}
           layout="stacked"
           className="rounded-lg shadow-md"
         />

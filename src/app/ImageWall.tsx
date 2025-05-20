@@ -5,13 +5,23 @@ import dynamic from 'next/dynamic';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import Image from 'next/image';
+import {  RenderComponentProps } from 'masonic';
 
 // Dynamically import Masonry with no SSR
-const Masonry = dynamic(() => import('masonic').then(mod => mod.Masonry), {
+const Masonry = dynamic(() => 
+  import('masonic').then((mod) => mod.Masonry<ImageData>), {
   ssr: false
 });
 
-const images = Array.from({ length: 234 }, (_, index) => ({
+interface ImageData {
+  src: string;
+  srcSm: string;
+  id: number;
+  name: string;
+  description: string;
+}
+
+const images: ImageData[] = Array.from({ length: 234 }, (_, index) => ({
   src: `/memory-${index+1}.jpeg`,
   srcSm: `/memory-${index+1}-lg.jpeg`,
   id: index + 1,
@@ -35,7 +45,7 @@ const ImageWall = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const renderImage = ({ index, data }: { index: number; data: { src: string } }) => (
+  const renderImage = ({ index, data }: RenderComponentProps<ImageData>) => (
     <div onClick={() => { setIsOpen(true); setCurrentIndex(index); }} className='overflow-hidden'>
       {/* TODO: 修正寬度 */}
       <Image

@@ -10,6 +10,7 @@ interface Partner {
   name: string;
   image: string;
   hoverImage: string;
+  socialImage?: string;
   message: string;
   color: string;
 }
@@ -20,6 +21,7 @@ const partners: Partner[] = [
     name: "安安 Anan",
     image: "/farewell-an.png",
     hoverImage: "/farewell-an.png",
+    socialImage: '/ig-an.png',
     message: `總是喜歡把 Hahow 的概念和宇宙聯繫在一起，<br/>
 因為對我來說，在這裡的一切神秘又遼闊——<br/>
 就像宇宙，總有未知、驚喜，也充滿無數星光閃爍的時刻。<br/>
@@ -41,6 +43,7 @@ const partners: Partner[] = [
     name: "致涵 Chihhan",
     image: "/farewell-chi.png",
     hoverImage: "/farewell-chi.png",
+    socialImage: '/ig-chi.jpg',
     message: `哎呀到了這個時候反而不知道說什麼好<br/>
 但 Hahow 這六年真的是奇幻旅程 連小學都不會同班這麼久<br/>
 謝謝大家陪我玩了六年，辛苦你們了捏 ε(´｡•᎑•\`)っ 💕<br/>
@@ -49,7 +52,7 @@ const partners: Partner[] = [
 台灣很小 你各位小心一定還會在哪個角落遇到我的！▄︻デ══━一💥<br/>
 大家～～～敏拿桑～～～有～～緣～～再～～見～～<br/>
 出去玩要約我、吃好吃的要想到我歐！我要跟法哥一樣當 Hahow 地縛靈💀！<br/>
-⸜(｡˃ ᵕ ˂ )⸝♡ 愛心光波！！！`,
+⸜(｡˃ ᵕ ˂ )⸝♡ 愛心光波！！！<br/>.`,
     color: "#FF5B51",
   },
   {
@@ -57,6 +60,7 @@ const partners: Partner[] = [
     name: "學姊 Julia",
     image: "/farewell-julia.png",
     hoverImage: "/farewell-julia.png",
+    socialImage: '/ig-julia.png',
     message: `時間咻－－地，四年就過了。<br/>
     還記得剛進來第一個禮拜就和大家去 Team Building，那時花蓮的旅行回憶仍歷歷在目。<br/>
     後來遇到疫情只能在家遠端的日子，沒辦法和大家一起在辦公室打屁閒聊，老實說有點孤單 இдஇ．．．<br/>
@@ -218,11 +222,23 @@ const FarewellPartners = ({ onPartnerClick, onLetterClose }: { onPartnerClick: (
           </h2>
           <p
             className="overflow-y-auto font-size-16 text-[#8a8a8a] leading-7 text-shadow-[6px_6px_4px_#ffffff]"
-            // style={{
-            //   whiteSpace: "pre",
-            // }}
             dangerouslySetInnerHTML={{ __html: displayedText }}
           />
+
+          {selectedPartner?.socialImage && (
+            <motion.div
+              className="absolute right-[16px] bottom-[16px]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: isTypingComplete ? 1 : 0 }}
+              transition={{ duration: 0.6, delay: isTypingComplete ? 0.96 : 0 }}>
+              <Image
+                src={selectedPartner.socialImage}
+                alt={`Social Image for ${selectedPartner.name}`}
+                width={120}
+                height={120}
+              />
+            </motion.div>
+          )}
 
           <motion.button
             onClick={() => setLetterOpen(false)}
