@@ -72,6 +72,9 @@ export default function Home() {
           </div>
         </div> */}
       </main>
+      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center text-gray-400 text-center text-sm mx-auto pt-[64px] pb-[162px]">
+        Made with 💛❤️💚 by ANAN, CHIHHAN, JULIA and YOU in Hahow ☺ 2017 - 2025
+      </footer>
       {/* <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
